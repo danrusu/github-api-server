@@ -21,6 +21,7 @@
       const postQuestion = () => {
         const question = document.querySelector("#question").value;
         fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
+          method: "POST",
           body: JSON.stringify({ question }),
         });
       };
