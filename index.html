@@ -19,11 +19,11 @@
 
     <script>
       const postQuestion = () => {
-          const question = document.querySelector('#question').value;
-          fetch('https://danrusu-github-api-server.herokuapp.com/postman/q', {
-              body: JSON.stringify({question});
-          });
-      }
+        const question = document.querySelector("#question").value;
+        fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
+          body: JSON.stringify({ question }),
+        });
+      };
     </script>
   </body>
 </html>
