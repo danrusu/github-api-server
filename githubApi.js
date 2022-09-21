@@ -8,8 +8,8 @@ const authorization = {
 async function postQuestion({ question, commitMessage = "Q&A" }) {
   const fileDetails = {
     owner: "danrusu",
-    repository: "demo",
-    filePath: "abc.md",
+    repository: "play-smart-with-the-backend",
+    filePath: "questions.md",
   };
   return appendToFile({
     ...fileDetails,
