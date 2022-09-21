@@ -19,12 +19,13 @@ async function postQuestion({ question, commitMessage = "Q&A" }) {
 }
 
 async function fetchFile({ owner, repository, filePath }) {
-  const response = await fetch(githubUrl({ owner, repository, filePath }), {
+  const url = githubUrl({ owner, repository, filePath });
+  const response = await fetch(url, {
     headers: {
       ...authorization,
     },
   });
-
+  console.log(response.status);
   const { content: encodedContent, encoding, sha } = await response.json();
   const content = Buffer.from(encodedContent, encoding).toString("utf8");
   return { content, sha };

@@ -10,13 +10,13 @@ const serveFileFromRoot = (res, relativePath) =>
   res.sendFile(path.join(`${__dirname}/${relativePath}`));
 
 const serveHome = (_, res) => serveFileFromRoot(res, "index.html");
-const postmanQandA = async ({ body }, res) => {
-  await postQuestion(body);
+const postmanQuestion = async (request, res) => {
+  await postQuestion(request.body);
   res.sendStatus(200);
 };
 // routes
 app.get("/", serveHome);
-app.post("/postman/q", postmanQandA);
+app.post("/postman/q", postmanQuestion);
 
 const notifyServerStart = () =>
   console.log(`server listening at http://localhost:${port}/`);

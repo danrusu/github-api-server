@@ -20,10 +20,18 @@
     <script>
       const postQuestion = () => {
         const question = document.querySelector("#question").value;
-        fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
-          method: "POST",
-          body: JSON.stringify({ question }),
-        });
+        console.log("question " + question);
+        if (question.length < 10) {
+          alert(`Question must have at least 10 characters!`);
+        } else {
+          fetch("https://danrusu-github-api-server.herokuapp.com//postman/q", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ question }),
+          });
+        }
       };
     </script>
   </body>
