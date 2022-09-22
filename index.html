@@ -55,7 +55,7 @@
     const postQuestion = async () => {
       const questionElement = document.querySelector("#question");
       const notificationElement = document.querySelector("#notification");
-      if (question.length < 10) {
+      if (questionElement.value.length < 10) {
         alert(`Questions must have at least 10 characters!`);
       } else {
         const response = await fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
