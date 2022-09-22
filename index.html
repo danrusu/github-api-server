@@ -1,59 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Postman Q&A</title>
-    <style>
-      body {
-        font-size: 20px;
-      }
-      h1 {
-        font-size: 3em;
-        text-align: center;
-      }
-      #form {
-        font-size: 0.9em;
-      }
-      button,
-      textarea {
-        margin: auto;
-        display: block;
-      }
-      button {
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Q & A</h1>
-    <br />
 
-    <div id="form">
-      <textarea
-        id="question"
-        type="textarea"
-        rows="10"
-        cols="50"
-        placeholder="Play smart with the backend question"
-      ></textarea>
-      <button onclick="postQuestion()">SUBMIT</button>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <title>Postman Q&A</title>
+  <style>
+    body {
+      font-size: 20px;
+    }
 
-    <script>
-      const postQuestion = () => {
-        const question = document.querySelector("#question").value;
-        if (question.length < 10) {
-          alert(`Question must have at least 10 characters!`);
-        } else {
-          fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify({ question }),
-          });
-        }
-      };
-    </script>
-  </body>
+    h1 {
+      font-size: 3em;
+      text-align: center;
+    }
+
+    #form {
+      font-size: 0.9em;
+      margin-top: 1.5em;
+    }
+
+    button,
+    textarea {
+      margin: auto;
+      display: block;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>
+    <a href="https://github.com/danrusu/play-smart-with-the-backend/blob/master/questions.md">
+      Q & A
+    </a>
+  </h1>
+
+  <div id="form">
+    <textarea id="question" type="textarea" rows="10" cols="50"
+      placeholder="Play smart with the backend question"></textarea>
+    <button onclick="postQuestion()">SUBMIT</button>
+  </div>
+
+  <script>
+    const postQuestion = () => {
+      const question = document.querySelector("#question").value;
+      if (question.length < 10) {
+        alert(`Questions must have at least 10 characters!`);
+      } else {
+        fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ question }),
+        });
+      }
+    };
+  </script>
+</body>
+
 </html>
