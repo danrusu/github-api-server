@@ -52,39 +52,39 @@
   </h1>
 
   <div id="form">
-    <textarea id="question" type="textarea" rows="10" cols="50" value=""
-      placeholder="Play smart with the backend question">
+    <textarea id="question" type="textarea" rows="10" cols="50" placeholder="Play smart with the backend question">
     </textarea>
     <button onclick="postQuestion()">SUBMIT</button>
     <div id="notification"></div>
   </div>
 
   <script>
+    const questionElement = document.querySelector('#question');
     const postQuestion = async () => {
-      const questionElement = document.querySelector("#question");
-      const notificationElement = document.querySelector("#notification");
+      const notificationElement = document.querySelector('#notification');
       if (questionElement.value.length < 10) {
         alert(`Questions must have at least 10 characters!`);
       } else {
-        const response = await fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
-          method: "POST",
+        const response = await fetch('https://danrusu-github-api-server.herokuapp.com/postman/q', {
+          method: 'POST',
           headers: {
-            "content-type": "application/json",
+            'content-type': 'application/json',
           },
           body: JSON.stringify({ question: questionElement.value }),
         });
         if (response.status === 200) {
           questionElement.value = '';
-          notificationElement.innerText = "Question posted!"
+          notificationElement.innerText = 'Question posted!';
           notificationElement.style.color = 'green';
         }
         else {
-          notification.innerText = "Failed to post the question. Try again."
+          notification.innerText = 'Failed to post the question. Try again.'
           notification.style.color = 'red';
         }
         setTimeout(() => { notificationElement.innerText = ''; }, 3000);
       }
     };
+    questionElement.value = '';
   </script>
 </body>
 
