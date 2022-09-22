@@ -21,7 +21,8 @@
     }
 
     button,
-    textarea {
+    textarea,
+    #notification {
       margin: auto;
       display: block;
     }
@@ -47,21 +48,32 @@
     <textarea id="question" type="textarea" rows="10" cols="50" placeholder="Play smart with the backend question">
     </textarea>
     <button onclick="postQuestion()">SUBMIT</button>
+    <div id="notification"></div>
   </div>
 
   <script>
-    const postQuestion = () => {
+    const postQuestion = async () => {
       const question = document.querySelector("#question").value;
+      const notification = document.querySelector("#notification").value;
       if (question.length < 10) {
         alert(`Questions must have at least 10 characters!`);
       } else {
-        fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
+        const response = await fetch("https://danrusu-github-api-server.herokuapp.com/postman/q", {
           method: "POST",
           headers: {
             "content-type": "application/json",
           },
           body: JSON.stringify({ question }),
         });
+        if (response.status === 200) {
+          question.value = '';
+          notification.innerText = "Question posted!"
+          notification.style.color = 'green';
+        }
+        else {
+          notification.innerText = "Failed to post the question. Try again."
+          notification.style.color = 'red';
+        }
       }
     };
   </script>
