@@ -53,8 +53,8 @@
 
   <script>
     const postQuestion = async () => {
-      const question = document.querySelector("#question").value;
-      const notification = document.querySelector("#notification").value;
+      const questionElement = document.querySelector("#question");
+      const notificationElement = document.querySelector("#notification");
       if (question.length < 10) {
         alert(`Questions must have at least 10 characters!`);
       } else {
@@ -63,12 +63,12 @@
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify({ question }),
+          body: JSON.stringify({ questionElement.value }),
         });
         if (response.status === 200) {
-          question.value = '';
-          notification.innerText = "Question posted!"
-          notification.style.color = 'green';
+          questionElement.value = '';
+          notificationElement.innerText = "Question posted!"
+          notificationElement.style.color = 'green';
         }
         else {
           notification.innerText = "Failed to post the question. Try again."
