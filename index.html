@@ -34,6 +34,10 @@
     a {
       text-decoration: none;
     }
+
+    #notification {
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -74,6 +78,7 @@
           notification.innerText = "Failed to post the question. Try again."
           notification.style.color = 'red';
         }
+        setTimeout(() => { notificationElement.innerText = ''; }, 3000);
       }
     };
   </script>
