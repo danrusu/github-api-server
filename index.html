@@ -7,6 +7,7 @@
   <style>
     body {
       font-size: 20px;
+      color: darkblue;
     }
 
     h1 {
@@ -28,19 +29,23 @@
     button {
       margin-top: 20px;
     }
+
+    a {
+      text-decoration: none;
+    }
   </style>
 </head>
 
 <body>
   <h1>
-    <a href="https://github.com/danrusu/play-smart-with-the-backend/blob/master/questions.md">
+    <a title="All questions" href="https://github.com/danrusu/play-smart-with-the-backend/blob/master/questions.md">
       Q & A
     </a>
   </h1>
 
   <div id="form">
-    <textarea id="question" type="textarea" rows="10" cols="50"
-      placeholder="Play smart with the backend question"></textarea>
+    <textarea id="question" type="textarea" rows="10" cols="50" placeholder="Play smart with the backend question">
+    </textarea>
     <button onclick="postQuestion()">SUBMIT</button>
   </div>
 
