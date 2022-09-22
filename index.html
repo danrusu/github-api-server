@@ -7,14 +7,15 @@
       body {
         font-size: 20px;
       }
-      button {
-        margin-top: 20px;
-      }
       h1 {
-        font-size: 1em;
+        font-size: 3em;
       }
       #form {
-        font-size: 0.7em;
+        font-size: 0.9em;
+      }
+      button {
+        margin-top: 20px;
+        display: block;
       }
     </style>
   </head>
@@ -23,13 +24,13 @@
     <br />
 
     <div id="form">
-      <input
+      <textarea
         id="question"
         type="textarea"
         rows="50"
         cols="200"
         placeholder="Play smart with the backend question"
-      />
+      ></textarea>
       <button onclick="postQuestion()">SUBMIT</button>
     </div>
 
