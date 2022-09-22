@@ -63,7 +63,7 @@
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify({ questionElement.value }),
+          body: JSON.stringify({ question: questionElement.value }),
         });
         if (response.status === 200) {
           questionElement.value = '';
